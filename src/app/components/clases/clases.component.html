@@ -1,15 +1,27 @@
 <div [ngClass]="alert" class="alert" role="alert">
   A simple success alert—check it out!
 </div>
-<button type="button" class="btn btn-danger" (click)="alert = 'alert-danger'">Info</button> 
+<button type="button" class="btn btn-danger" (click)="alert = 'alert-danger'">Info</button>
 <button type="button" class="btn btn-success" (click)="alert = 'alert-success'">Success</button>
 
 <h3 [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger}">
   Hello word
 </h3>
 
-<button type="button" class="btn" 
-(click)="propiedades.danger= !propiedades.danger"
-[ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger}">
-boton
+<button type="button" class="btn" (click)="propiedades.danger= !propiedades.danger"
+  [ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger}">
+  boton
+</button>
+<br>
+<br>
+<br>
+<h3>Proceso asincrono</h3>
+<button (click)="ejecutar()" type="button" class="btn btn-primary" [disabled]="loading">
+
+  <i [ngClass]="{'fa-save': !loading,'fa-refresh fa-spin':loading}" class="fa "></i>
+  <span *ngIf="!loading">Save changes</span>
+  <span *ngIf="loading">Waiting to save</span>
+
+  Save
+
 </button>
